@@ -12,11 +12,12 @@ public class BehaviourTreeRunner : MonoBehaviour
         InitializeTreeComponent();
 
         CloneTree();
+        
     }
 
     void Start() 
     {
-        InitializeNodeComponent();
+        InitializeNodeComponent();  
     }
 
     public void InitializeTreeComponent() 
@@ -36,7 +37,6 @@ public class BehaviourTreeRunner : MonoBehaviour
             n.treeComponent = treeComponent;
         });
     }
-
 
 
     void Update()

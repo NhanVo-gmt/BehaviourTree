@@ -47,7 +47,7 @@ public class BehaviourTree : ScriptableObject, ISerializationCallbackReceiver
 
     public NodeComponent.State Update() 
     {
-        if (rootNode.component.state == NodeComponent.State.RUNNING)
+        if (rootNode.NodeComponent.state == NodeComponent.State.RUNNING)
         {
             treeState = rootNode.Update();
         }
@@ -62,7 +62,7 @@ public class BehaviourTree : ScriptableObject, ISerializationCallbackReceiver
 
         Node newNode = CreateInstance(type) as Node;
         newNode.name = type.Name;
-        newNode.component.guid = GUID.Generate().ToString();
+        newNode.NodeComponent.guid = GUID.Generate().ToString();
 
         nodes.Add(newNode);
 
@@ -88,7 +88,7 @@ public class BehaviourTree : ScriptableObject, ISerializationCallbackReceiver
         for (int i = 0; i < oldPastedNodeList.Count; i++)
         {
             Node newNode = CreateNode(oldPastedNodeList[i].GetType());
-            newNode.position = oldPastedNodeList[i].position + offset;
+            newNode.NodeComponent.position = oldPastedNodeList[i].NodeComponent.position + offset;
             CopyActionNode(newNode as ActionNode, oldPastedNodeList[i] as ActionNode);
             newPastedNodeList.Add(newNode);
         }

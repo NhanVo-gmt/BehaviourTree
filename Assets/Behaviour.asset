@@ -12,33 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c81d3d3d1e29dc40a60e4fc0e658eb8, type: 3}
   m_Name: Behaviour
   m_EditorClassIdentifier: 
-  rootNode: {fileID: 9145322397095995666}
+  rootNode: {fileID: 1914799408270908664}
   treeState: 0
   nodes:
-  - {fileID: 9145322397095995666}
-  - {fileID: 307196338808248497}
+  - {fileID: 1914799408270908664}
+  - {fileID: 4663520025381079310}
   offset: {x: 300, y: 0}
---- !u!114 &307196338808248497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a57fc3dc79df944da7fe5a7460ab2db, type: 3}
-  m_Name: AnimationNode
-  m_EditorClassIdentifier: 
-  component:
-    state: 0
-    started: 0
-    guid: 36240d143d4b3bf41aeb36c2ca70a230
-    position: {x: 0, y: 0}
-    description: 
-  position: {x: 88.80005, y: 167.84799}
-  description: 
---- !u!114 &9145322397095995666
+--- !u!114 &1914799408270908664
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50,12 +30,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a70733bb26462ae4aa3c3dd3641cdf82, type: 3}
   m_Name: RootNode
   m_EditorClassIdentifier: 
-  component:
+  NodeComponent:
     state: 0
     started: 0
-    guid: e98cb8e286c3bca4a8c550bd938882d5
-    position: {x: 0, y: 0}
+    guid: a6112f3d7eb725e4d978d98a4538022c
+    position: {x: 173.6, y: -14.519997}
     description: 
-  position: {x: 88, y: -58.920006}
-  description: 
-  child: {fileID: 307196338808248497}
+  child: {fileID: 4663520025381079310}
+--- !u!114 &4663520025381079310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a57fc3dc79df944da7fe5a7460ab2db, type: 3}
+  m_Name: AnimationNode
+  m_EditorClassIdentifier: 
+  NodeComponent:
+    state: 0
+    started: 0
+    guid: 8280ec655dfec514c9bc88373df578e7
+    position: {x: 110.20001, y: 216.20001}
+    description: 
+  clipName: run

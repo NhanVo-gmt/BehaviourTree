@@ -125,7 +125,7 @@ public class BehaviourTreeGraphView : GraphView
 
         graphViewChanged -= OnGraphViewChanged;
         DeleteElements(graphElements);
-        Remove(openingLabel);
+        DeleteOpeningElements();
         graphViewChanged += OnGraphViewChanged;
 
         CreateRootNode();
@@ -134,6 +134,14 @@ public class BehaviourTreeGraphView : GraphView
         tree.nodes.ForEach(n => CreateEdge(n));
 
         InitializeSearchWindow(editorWindow);
+    }
+
+    private void DeleteOpeningElements()
+    {
+        if (Contains(openingLabel))
+        {
+            Remove(openingLabel);
+        }
     }
 
     private GraphViewChange OnGraphViewChanged(GraphViewChange graphViewChange)
@@ -217,7 +225,7 @@ public class BehaviourTreeGraphView : GraphView
 
     NodeView FindNodeView(Node node)
     {
-        return GetNodeByGuid(node.component.guid) as NodeView;
+        return GetNodeByGuid(node.NodeComponent.guid) as NodeView;
     }
 
     public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
@@ -257,7 +265,7 @@ public class BehaviourTreeGraphView : GraphView
     {
         Node node = tree.CreateNode(type);
         node.name = type.Name;
-        node.position = position;
+        node.NodeComponent.position = position;
         
         CreateNodeView(node);
     }

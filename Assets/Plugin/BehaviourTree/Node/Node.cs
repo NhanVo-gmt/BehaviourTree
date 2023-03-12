@@ -5,33 +5,28 @@ using UnityEngine;
 
 public abstract class Node : ScriptableObject
 {
-
-    public NodeComponent component = new NodeComponent();
+    public NodeComponent NodeComponent = new NodeComponent();
 
     [Header("Core Component")]
     public BehaviourTreeComponent treeComponent;
 
-    [Header("Editor component")]
-    public Vector2 position;
-    [TextArea(5, 5)] public string description;
-
     public NodeComponent.State Update() 
     {
-        if (!component.started)
+        if (!NodeComponent.started)
         {
             OnStart();
-            component.started = true;
+            NodeComponent.started = true;
         }
 
-        component.state = OnUpdate();
+        NodeComponent.state = OnUpdate();
 
-        if (component.state == NodeComponent.State.SUCCESS || component.state == NodeComponent.State.FAILURE)
+        if (NodeComponent.state == NodeComponent.State.SUCCESS || NodeComponent.state == NodeComponent.State.FAILURE)
         {
             OnStop();
-            component.started = false;
+            NodeComponent.started = false;
         }
 
-        return component.state;
+        return NodeComponent.state;
     }
 
     public virtual Node Clone() 
@@ -42,8 +37,8 @@ public abstract class Node : ScriptableObject
     public virtual void Abort()
     {
         OnStop();
-        component.started = false;
-        component.state = NodeComponent.State.FAILURE;
+        NodeComponent.started = false;
+        NodeComponent.state = NodeComponent.State.FAILURE;
     }
 
     protected abstract void OnStart();
